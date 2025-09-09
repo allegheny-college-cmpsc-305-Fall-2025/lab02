@@ -1,0 +1,44 @@
+# perform checks on a file
+
+# check the technical writing for various characteristics
+- writing/queries.md:
+    - description: Ensure that writing/queries.md file exists
+      check: ConfirmFileExists
+    - description: Complete all TODOs and remove the TODO markers in the file
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the File
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+
+
+# check the technical writing for various characteristics
+- src/proteinDB_build.txt:
+    - description: Ensure that src/proteinDB_build.txt file exists
+      check: ConfirmFileExists
+    - description: Complete all TODOs and remove the TODO markers in the file
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the File
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+
+
+
+# --> check that the number of commits in the Git repository is beyond a threshold
+- description: Have at least a specific minimum number of commits (3) in repository
+  check: CountCommits
+  options:
+    count: 3
